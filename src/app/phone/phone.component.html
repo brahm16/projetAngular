@@ -1,0 +1,21 @@
+<div class="col-6 col-md-4 mb-3 mx-2" >
+    <div class="card" style="width: 15rem;">
+        <img class="card-img-top men-thumb-item" src="{{baseURL+phone.imageUrl}}" alt="{{phone.name}}">
+        <div class="card-body">
+          <div *ngIf="phone.quantity==0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock ><p class="text-danger font-weight-bold">n'est pas en stock</p></ng-template>
+<ng-template #elseBlock ><p class="text-success font-weight-bold">En stock</p></ng-template>
+          <h5 class="card-title">{{phone.name}}</h5>
+          <p class="card-text">{{phone.name}} agé {{phone.age}} an</p>
+          <a class="btn btn-add-shop my-2"  [routerLink]="['/phones/edit', phone.id]">Modifier Telephone </a>
+          <div class="men-cart-pro">
+            <div class="inner-men-cart-pro">
+              <a [routerLink]="['/phones/details', phone.id]" class="btn btn-view">Quick View</a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+</div>
