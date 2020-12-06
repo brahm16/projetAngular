@@ -10,6 +10,7 @@ import { TestComponent } from './test/test.component';
 import { DetailsPhoneComponent } from './details-phone/details-phone.component';
 import { AddPhoneComponent } from './add-phone/add-phone.component';
 import { UpdatePhoneComponent } from './update-phone/update-phone.component';
+import { ListPhonesComponent } from './list-phones/list-phones.component';
 const routes : Routes = [
   {path:"",redirectTo:"home",pathMatch:'full',canActivate: [AuthGuard]},
   {path:"home",component:HomeComponent,canActivate: [AuthGuard]},
@@ -17,6 +18,7 @@ const routes : Routes = [
   {path:"phones/details/:id",component:DetailsPhoneComponent,canActivate: [AuthGuard]},
   {path:"phones/edit/:id",component:UpdatePhoneComponent,canActivate: [AuthGuard]},
   {path:"phones/add",component:AddPhoneComponent,canActivate: [AuthGuard]},
+  {path:"phones/list",component:ListPhonesComponent,canActivate: [AuthGuard]},
   {path:"register",component:RegisterComponent},
   {path:"test",component:TestComponent}, 
   {path:"**",component:PageNotFoundComponent}

@@ -1,14 +1,14 @@
 <form [formGroup]=fg>
     <div class="form-group">
         <label>Name</label>
-        <input type="text" class="form-control" formControlName="name"  value="{{phone.name}}">
+        <input type="text" class="form-control" formControlName="name"  >
         <div class="alert alert-danger mt-4" *ngIf="name.errors && name.touched">
           the name is a required field
         </div>
       </div>
       <div class="form-group">
         <label>Age</label>
-        <input type="number" class="form-control" formControlName="age" value="{{phone.age}}">
+        <input type="number" class="form-control" formControlName="age" >
         <div class="alert alert-danger mt-4" *ngIf="age.errors && age.touched">
           the age is a required field
         </div>
@@ -22,16 +22,10 @@
       </div>
       <div class="form-group">
         <label>Snippet</label>
-        <input type="text" class="form-control" formControlName="snippet" value="{{phone.snippet}}">
+        <input type="text" class="form-control" formControlName="snippet" >
         <div class="alert alert-danger mt-4" *ngIf="snippet.errors && snippet.touched">
           <div *ngIf="snippet.errors.required">the snippet is a required field</div>
         </div>
-      </div>
-      <div class="form-group">
-        <label>Upload Image</label>
-        <input type="file" (change)="onFileSelected($event)" class="form-control" value={{phone.imageUrl}} />
-
-
       </div>
       <h1>Android</h1>
   <div formGroupName="android">
@@ -44,7 +38,6 @@
     </div>
     <div class="form-group">
       <label>UI</label>
-      {{ phone| json }}
       <input type="text" class="form-control" formControlName="ui" >
       <div class="alert alert-danger" *ngIf="ui.errors && ui.touched">
        Ui is a required
@@ -56,7 +49,7 @@
   <button class="alert alert-success" (click)="update()" [disabled]="fg.invalid">
     Save
   </button>
-  <div class="alert alert-success" *ngIf="saved">
+  <div class="alert alert-success" *ngIf="updated">
     la telephone est ajouter avec success
 
   </div>

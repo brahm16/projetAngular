@@ -16,6 +16,8 @@ import { DetailsPhoneComponent } from './details-phone/details-phone.component';
 import { AddPhoneComponent } from './add-phone/add-phone.component';
 import { UpdatePhoneComponent } from './update-phone/update-phone.component';
 import { ModifQuantComponent } from './modif-quant/modif-quant.component';
+import { ListPhonesComponent } from './list-phones/list-phones.component';
+import { ItemPhoneComponent } from './item-phone/item-phone.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { ModifQuantComponent } from './modif-quant/modif-quant.component';
     AddPhoneComponent,
     UpdatePhoneComponent,
     TestComponent,
-    ModifQuantComponent
+    ModifQuantComponent,
+    ListPhonesComponent,
+    ItemPhoneComponent
   ],
   imports: [
     BrowserModule,

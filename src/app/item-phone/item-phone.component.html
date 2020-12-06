@@ -1,0 +1,19 @@
+    <div class="row">
+        <div class="col-md-4">
+            {{ phone.name }}
+
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-default" [disabled]="phone.quantity==0" (click)="moin()">    <span class="badge badge-primary badge-pill">-</span> </button>
+            {{ phone.quantity }}
+            <button class="btn btn-default" (click)="add()">    <span class="mx-2 badge badge-primary badge-pill">+</span></button>
+
+        </div>
+        <div class="col-md-4">
+            <img class="w-10 mx-2 my-2" src="{{baseURL+phone.imageUrl}}" alt="{{phone.name}}"><button
+            class="btn btn-outline-danger" (click)="onSubmit()"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button (click)="confirmation()" [hidden]="!show" class="btn btn-outline-warning mx-2 my-2"><i class="fa fa-check"></i></button>
+
+        </div>
+
+    </div>

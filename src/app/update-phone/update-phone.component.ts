@@ -22,14 +22,16 @@ export class UpdatePhoneComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.phoneService.getPhoneById(id).subscribe((phone)=>{this.phone=phone
       console.log(this.phone);
+      let os=phone.android.os;
+      let ui=phone.android.ui
       this.fg=new FormGroup({
         quantity:new FormControl(phone.quantity,[Validators.required]),
         name: new FormControl(phone.name,[Validators.required, Validators.minLength(3)]),
         age:new FormControl(phone.age,[Validators.required]),
         snippet: new FormControl(phone.snippet,[Validators.required, Validators.minLength(3)]),
         android: new FormGroup({
-          os: new FormControl(phone.android.os, Validators.required),
-          ui: new FormControl(phone.android.ui, Validators.required)
+          os: new FormControl(os, Validators.required),
+          ui: new FormControl(ui, Validators.required)
   
         })
     })
@@ -64,9 +66,15 @@ export class UpdatePhoneComponent implements OnInit {
     return this.fg.get('android').get('ui');
   }
   update(){
-    this.phoneService.updatePhone(this.phone.id,this.phone).subscribe((phone)=>{
-      this.phone=phone;
-    });
+    if(this.fg.valid){
+      this.phoneService.updatePhone(this.phone.id,this.phone).subscribe((phone)=>{
+        this.phone=phone;
+        this.updated=true;
+        this.fg.reset();
+      });
+
+    }
+ 
   }
 
 }

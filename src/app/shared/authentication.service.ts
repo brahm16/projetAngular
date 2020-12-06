@@ -45,7 +45,7 @@ export class AuthenticationService {
 }
   register(user: User): Observable<User> {
     return this.http.post<User>(
-      baseURLAuth+"/register", {email:user.email,password:user.password,firstname:user.firstName,lastname:user.lastName}).pipe(map(user=>{
+      baseURLAuth+"/register", {email:user.email,password:user.password,firstname:user.firstname,lastname:user.lastname}).pipe(map(user=>{
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         console.log(this.currentUserSubject);
