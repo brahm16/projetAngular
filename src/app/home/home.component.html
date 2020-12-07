@@ -3,6 +3,8 @@
         <a class="btn btn-secondary"  [routerLink]="['/phones/add']">Ajouter</a>
 
     </div>
+    <app-serach (send)="filterList($event)" (sendAge)="filterListAge($event)"></app-serach>
+
     <!-- <button class="btn btn-primary mt-4" (click)="showFormM()">Add product bel view child</button>  --> 
     <div class="row my-5">
         <app-phone  *ngFor="let p of listPhone"  [phone]="p"></app-phone>

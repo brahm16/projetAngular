@@ -1,5 +1,8 @@
 <div class="container">
+    <app-serach (send)="filterList($event)" (sendAge)="filterListAge($event)"></app-serach>
+
     <div class="row my-5">
+
         <div class="col-12">
             <app-item-phone *ngFor="let p of listPhone" [phone]="p"(plusQuantite)="increment($event)" (confirm)="confirmer($event)" (moinsQuantite)="decrement($event)"  (delete)="deletePhone($event)" ></app-item-phone>
 

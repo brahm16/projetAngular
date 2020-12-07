@@ -10,12 +10,15 @@ import { PhoneService } from '../shared/phone.service';
 export class ListPhonesComponent implements OnInit {
   listPhone:Phone[];
   errMess:string;
+  listPhoneCopy: Phone[];
 
   constructor(private phonesService:PhoneService) { }
 
   ngOnInit(): void {
     this.phonesService.getPhones().subscribe((phones)=>{
       this.listPhone=phones;
+      this.listPhoneCopy=phones;
+
     },
     errmess => {this.errMess = <any>errmess}
     )
@@ -41,7 +44,27 @@ export class ListPhonesComponent implements OnInit {
  confirmer(phone: Phone){
    this.phonesService.updatePhone(phone.id,phone).subscribe((p)=>{
      phone=p;
+     
    })
  }
+ filterList(id :number){
+  console.log("filtered "+id);
+  if(id==1)
+  this.listPhone=this.listPhoneCopy.filter(x=>x.quantity==0);
+  if(id==2)
+  this.listPhone=this.listPhoneCopy.filter(x=>x.quantity>0);
+  if(id==0)
+  this.listPhone=this.listPhoneCopy;
+}
+filterListAge(id: number){
+  if(id==1)
+  this.listPhone=this.listPhoneCopy.filter(x=>x.age<=2);
+  if(id==2)
+  this.listPhone=this.listPhoneCopy.filter(x=>x.age>2 && x.age<=5);
+  if(id==3)
+  this.listPhone=this.listPhoneCopy.filter(x=>x.age>5)
+  if(id==0)
+  this.listPhone=this.listPhoneCopy;
+}
 
 }

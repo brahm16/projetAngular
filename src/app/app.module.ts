@@ -19,6 +19,7 @@ import { ModifQuantComponent } from './modif-quant/modif-quant.component';
 import { ListPhonesComponent } from './list-phones/list-phones.component';
 import { ItemPhoneComponent } from './item-phone/item-phone.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
+import { SerachComponent } from './serach/serach.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { WeatherWidgetComponent } from './weather-widget/weather-widget.componen
     ModifQuantComponent,
     ListPhonesComponent,
     ItemPhoneComponent,
-    WeatherWidgetComponent
+    WeatherWidgetComponent,
+    SerachComponent
   ],
   imports: [
     BrowserModule,
