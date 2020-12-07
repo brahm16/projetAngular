@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3">
             <form [formGroup]=fg>
                 <div class="form-group">
                     <label>Email</label>
@@ -18,12 +18,16 @@
                   </div>
                   <div class="form-group">
                     <button class="alert alert-success" (click)="save()" [disabled]="fg.invalid">
-                      Save
+                      Login
                     </button>
 
                   </div>
                   <a [routerLink]="['/register']">Vous voulez inscrire ?</a>
                   </form>
+
+        </div>
+        <div class="col-md-6">
+          <app-weather-widget></app-weather-widget>
 
         </div>
 

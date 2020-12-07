@@ -18,6 +18,7 @@ import { UpdatePhoneComponent } from './update-phone/update-phone.component';
 import { ModifQuantComponent } from './modif-quant/modif-quant.component';
 import { ListPhonesComponent } from './list-phones/list-phones.component';
 import { ItemPhoneComponent } from './item-phone/item-phone.component';
+import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { ItemPhoneComponent } from './item-phone/item-phone.component';
     TestComponent,
     ModifQuantComponent,
     ListPhonesComponent,
-    ItemPhoneComponent
+    ItemPhoneComponent,
+    WeatherWidgetComponent
   ],
   imports: [
     BrowserModule,
