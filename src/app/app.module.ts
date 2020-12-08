@@ -20,6 +20,8 @@ import { ListPhonesComponent } from './list-phones/list-phones.component';
 import { ItemPhoneComponent } from './item-phone/item-phone.component';
 import { WeatherWidgetComponent } from './weather-widget/weather-widget.component';
 import { SerachComponent } from './serach/serach.component';
+import { ChartsComponent } from './charts/charts.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,14 +38,16 @@ import { SerachComponent } from './serach/serach.component';
     ListPhonesComponent,
     ItemPhoneComponent,
     WeatherWidgetComponent,
-    SerachComponent
+    SerachComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   providers: [[{provide: 'baseURL', useValue: baseURL},{provide: 'baseURLAuth', useValue: baseURLAuth}]],
