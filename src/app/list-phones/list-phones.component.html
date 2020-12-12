@@ -1,7 +1,22 @@
 <div class="container">
-    <app-serach (send)="filterList($event)" (sendAge)="filterListAge($event)"></app-serach>
+    
+  <div class="row">
+    <div class="col-md-6">
+        <button (click)="open(content)" class="btn btn-primary">Filter</button>
+
+    </div>
+
+  </div>
+
+    <div class="row mb-2">
+        
+    
+    
+    </div>
 
     <div class="row my-5">
+       
+      
 
         <div class="col-12">
             <app-item-phone *ngFor="let p of listPhone" [phone]="p"(plusQuantite)="increment($event)" (confirm)="confirmer($event)" (moinsQuantite)="decrement($event)"  (delete)="deletePhone($event)" ></app-item-phone>
@@ -15,5 +30,19 @@
             <span class="sr-only">Loading...</span>
           </div>
     </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Recherche</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-serach (send)="filterList($event)" (sendAge)="filterListAge($event)" (sendName)="filterName($event)"></app-serach>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
 
 </div>

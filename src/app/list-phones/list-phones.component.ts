@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Phone } from 'src/models/phone';
+import { Search } from 'src/models/search';
 import { PhoneService } from '../shared/phone.service';
 
 @Component({
@@ -11,10 +13,14 @@ export class ListPhonesComponent implements OnInit {
   listPhone:Phone[];
   errMess:string;
   listPhoneCopy: Phone[];
+  search:Search;
 
-  constructor(private phonesService:PhoneService) { }
+
+  constructor(private phonesService:PhoneService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.search=new Search();
+
     this.phonesService.getPhones().subscribe((phones)=>{
       this.listPhone=phones;
       this.listPhoneCopy=phones;
@@ -65,6 +71,15 @@ filterListAge(id: number){
   this.listPhone=this.listPhoneCopy.filter(x=>x.age>5)
   if(id==0)
   this.listPhone=this.listPhoneCopy;
+}
+
+filterName(name:string){
+  console.log(name);
+  this.listPhone=this.listPhoneCopy.filter(x=>x.name.match(name)||x.name.match(name.toUpperCase())||x.name.match(name.toLowerCase()));
+
+}
+open(content) {
+  this.modalService.open(content, { centered: true });
 }
 
 }

@@ -1,9 +1,15 @@
 <div class="container my-5">
     <div class="row my-5">
-        <a class="btn btn-secondary"  [routerLink]="['/phones/add']">Ajouter</a>
+        <div class="col-md-6">
+            <a class="btn btn-secondary"  [routerLink]="['/phones/add']">Ajouter</a>
+        </div>
+        <div class="col-md-6">
+            <button (click)="open(content)" class="btn btn-primary">Filter</button>
+
+        </div>
 
     </div>
-    <app-serach (send)="filterList($event)" (sendAge)="filterListAge($event)"></app-serach>
+
 
     <!-- <button class="btn btn-primary mt-4" (click)="showFormM()">Add product bel view child</button>  --> 
     <div class="row my-5">
@@ -18,4 +24,18 @@
           
 
     </div>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Recherche</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-serach (send)="filterList($event)" (sendAge)="filterListAge($event)" (sendName)="filterName($event)"></app-serach>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
 </div>

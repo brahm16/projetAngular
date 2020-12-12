@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Search } from 'src/models/search';
 
 @Component({
   selector: 'app-serach',
@@ -8,6 +9,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SerachComponent implements OnInit {
   @Output() send= new EventEmitter<number>();
   @Output() sendAge= new EventEmitter<number>();
+  @Output() sendName= new EventEmitter<string>();
+  search:Search;
+
+
+
+
+
+
 
 
   selected;
@@ -30,6 +39,8 @@ export class SerachComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.search=new Search();
+
   }
   changer(){
     console.log(this.selected.id);
@@ -39,5 +50,10 @@ export class SerachComponent implements OnInit {
     console.log(this.age.id);
     this.sendAge.emit(this.age.id);
   }
+  changerName(){
+    console.log(this.search.name);
+    this.sendName.emit(this.search.name);
+  }
+ 
 
 }
